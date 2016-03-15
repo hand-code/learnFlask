@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if post %}
+        <title>{{ post.title }}</title>
+        <meta name="description" content="{{ post.title }}">
+        <meta name="keywords" content="{{ post.tags | format_meta_keywords }}">
+        <meta name="author" content="{{ post.author.name }}">
+    {% else %}
+        <title>18L小说站</title>
+        <meta name="description" content="python flask react blog">
+        <meta name="keywords" content="python flask react blog">
+        <meta name="author" content="shin">
+    {% endif %}
+
+    <!-- head 中 -->
+    <link rel="stylesheet" href="../static/jquery-weui/dist/lib/weui.css">
+    <link rel="stylesheet" href="../static/jquery-weui/dist/css/jquery-weui.css">
+    {% block header %}
+    {% endblock %}
+</head>
+<body>
+    <div class="weui_tab">
+      <div class="weui_tab_bd">
+          {% block content %}
+          {% endblock %}
+      </div>
+      <div class="weui_tabbar">
+        <a href="javascript:;" class="weui_tabbar_item weui_bar_item_on">
+          <div class="weui_tabbar_icon">
+            <img src="../static/jquery-weui/dist/images/icon_nav_button.png" alt="">
+          </div>
+          <p class="weui_tabbar_label">微信</p>
+        </a>
+        <a href="javascript:;" class="weui_tabbar_item">
+          <div class="weui_tabbar_icon">
+            <img src="../static/jquery-weui/dist/images/icon_nav_cell.png" alt="">
+          </div>
+          <p class="weui_tabbar_label">通讯录</p>
+        </a>
+        <a href="javascript:;" class="weui_tabbar_item">
+          <div class="weui_tabbar_icon">
+            <img src="../static/jquery-weui/dist/images/icon_nav_dialog.png" alt="">
+          </div>
+          <p class="weui_tabbar_label">发现</p>
+        </a>
+        <a href="javascript:;" class="weui_tabbar_item">
+          <div class="weui_tabbar_icon">
+            <img src="../static/jquery-weui/dist/images/icon_nav_toast.png" alt="">
+          </div>
+          <p class="weui_tabbar_label">我</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- body 最后 -->
+    <script src="../static/jquery-weui/dist/lib/jquery-2.1.4.js"></script>
+    <script src="../static/jquery-weui/dist/js/jquery-weui.js"></script>
+    {% block footer %}
+    {% endblock %}
+</body>
